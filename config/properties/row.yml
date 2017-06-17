@@ -1,0 +1,39 @@
+id:       int
+sheetId:  int
+rowNumber: int
+version: number
+filteredOut: boolean
+inCriticalPath: boolean
+locked: boolean
+lockedForUser: boolean
+expanded: boolean
+accessLevel: string
+format: string
+conditionalFormat: string
+createdAt: timestamp
+createdBy: User
+modifiedAt: timestamp
+modifiedBy: User
+cells: array
+discussions: array
+attachments: array
+columns: array
+permalink: string
+parentId: int
+siblingId: int
+toTop: boolean
+toBottom: boolean
+above: boolean
+action:
+  add:
+    method: POST
+    uri: sheets/%%sheetId%%/rows
+  copy:
+    method: POST
+    uri: sheets/%%sheetId%%/rows/copy
+  delete:
+    method: DELETE
+    uri: sheets/%%sheetId%%/rows?ids=%%rowId1%%,%%rowId2%%,%%rowId3%%
+  get:
+    method: GET
+    uri: sheets/%%sheetId%%/rows/%%rowId%%

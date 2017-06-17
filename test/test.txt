@@ -1,0 +1,7 @@
+curl https://api.smartsheet.com/2.0/sheets \
+-H "Authorization: Bearer 5aunobc4139vi7ax1q2seikaew" \
+-H "Content-Type: application/json" \
+-X POST \
+-d "{"name":"anothersheet","columns":[{"title":"favorite","type":"CHECKBOX","symbol":"STAR"},{"title":"Primary Column","primary":true,"type":"TEXT_NUMBER"}]}"
+
+"{"name":"anothersheet","columns":[{"title":"favorite","type":"CHECKBOX","symbol":"STAR"},{"title":"Primary Column","primary":true,"type":"TEXT_NUMBER"}]}"

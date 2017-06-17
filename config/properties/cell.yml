@@ -1,0 +1,17 @@
+columnId: int
+columnType: string
+displayValue: string
+objectValue: objectValue
+formula: string
+hyperlink: hyperlink
+linkInFromCell: cellink
+linksOutToCells: cellink
+overrideValidation: boolean
+format: string
+conditionalFormat: string
+strict: boolean
+image: image
+action:
+  history:
+    method: GET
+    uri: /sheets/%%sheetId%%/rows/%%rowId%%/columns/%%columnId%%/history

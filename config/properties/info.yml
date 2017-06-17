@@ -1,0 +1,2 @@
+baseUrl: 'https://api.smartsheet.com'
+apiVersion: '2.0'

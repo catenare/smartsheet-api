@@ -1,0 +1,24 @@
+parameters:
+  site.uri: !php/const:HEADERS
+  command.name: "SmartSheet"
+services:
+  client:
+    class:  GuzzleHttp\Client
+    arguments: ['%site.uri%']
+  smartconfig:
+    class: SmartSheet\Util\SmartConfig
+  smartclient:
+    class: SmartSheet\SmartClient
+    arguments: ['@client', '@smartconfig']
+  properties:
+    class: SmartSheet\Sheet\Properties
+    shared: false
+  sheet:
+    class: SmartSheet\Sheet\Sheet
+    shared: false
+    arguments: ['@smartclient','@properties']
+  sheetcommand:
+    class: SmartSheet\Command\SheetCommand
+    arguments: ['%command.name%','@smartclient']
+  smartmain:
+    class: SmartSheet\SmartSheet

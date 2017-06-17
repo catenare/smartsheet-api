@@ -1,0 +1,8 @@
+id:         int
+name:       string
+favorite:   boolean
+permalink:  string
+sheets:     array
+folders:    array
+reports:    array
+templates:  array

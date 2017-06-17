@@ -1,0 +1,40 @@
+id:               int
+name:             string
+version:          number
+totalRowCount:    number
+accessLevel:      string
+projectSettings:  projectSettings
+effectiveAttachmentOptions: array
+readOnly: boolean
+ganntEnabled: boolean
+dependenciesEnabled: boolean
+resourceManagementEnabled: boolean
+favorite: boolean
+showParentRowsForFilters: boolean
+owner: string
+ownerId: number
+permalink: string
+source: Source
+createdAt: timestamp
+modifiedAt: timestamp
+columns: array
+rows: array
+discussions: array
+attachments: array
+fromid: number
+action:
+  add:
+    method: POST
+    uri: sheets
+  copy:
+    method: POST
+    uri: sheets/%%sheetId%%/copy
+  delete:
+    method: DELETE
+    uri: sheets/%%sheetId%%
+  get:
+    method: GET
+    uri: sheets/%%sheetId%%
+  version:
+    method: GET
+    uri: sheets/%%sheetId%%/version
