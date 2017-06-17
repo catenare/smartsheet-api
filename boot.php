@@ -6,7 +6,7 @@
  * Time: 19:38
  */
 
-require 'vendor/autoload.php';
+//require 'vendor/autoload.php';
 
 use Symfony\Component\Dotenv\Dotenv;
 
@@ -37,4 +37,4 @@ define( 'BASE_URL', [ 'base_uri' => $_ENV['URL'] ] );
 define( 'HEADERS', [ 'base_uri' => $_ENV['URL'], 'headers' => [ 'Authorization' => 'Bearer ' . $_ENV['TOKEN'] ] ] );
 define( 'CONFIG_DIRECTORIES', [ __DIR__ . DIRECTORY_SEPARATOR . CONFIG . DIRECTORY_SEPARATOR . PROPERTIES_DIR ] );
 
-require 'main.php';
+//require 'main.php';

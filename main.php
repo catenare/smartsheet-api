@@ -1,18 +1,14 @@
 #!/usr/bin/env php
 <?php
-
+require 'vendor/autoload.php';
 use Symfony\Component\Console\Application;
 use SmartSheet\SmartSheet;
-
 
 class Main {
 	/**
 	 * @var \SmartSheet\SmartClient
 	 */
 	private $smartsheet = NULL;
-
-
-
 
 	/**
 	 * Main constructor.
@@ -28,7 +24,6 @@ class Main {
 	public function getSmartSheet() {
 	    return $this->smartsheet;
     }
-
 
 	/**
 	 *
@@ -66,6 +61,4 @@ class Main {
 	public function addRows($data) {
         return $this->smartsheet->addRows($data);
     }
-
 }
-
