@@ -22,6 +22,13 @@ class Main {
         $this->application = new Application();
     }
 
+	/**
+	 * @return \SmartSheet\SmartClient|SmartSheet
+	 */
+	public function getSmartSheet() {
+	    return $this->smartsheet;
+    }
+
 
 	/**
 	 *
@@ -42,11 +49,21 @@ class Main {
 	    return $this->smartsheet->createSheet($data);
     }
 
-    public function deleteSheet($sheet_id){
+	/**
+	 * @param $sheet_id
+	 *
+	 * @return mixed
+	 */
+	public function deleteSheet($sheet_id){
         return $this->smartsheet->deleteSheet($sheet_id);
     }
 
-    public function addRows($data) {
+	/**
+	 * @param $data
+	 *
+	 * @return mixed
+	 */
+	public function addRows($data) {
         return $this->smartsheet->addRows($data);
     }
 

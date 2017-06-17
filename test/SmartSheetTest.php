@@ -20,7 +20,7 @@ class SmartSheetTest extends BaseTest {
 
     public function testGetContainer()
     {
-        $container = $this->sheet->getContainer();
+        $container = $this->sheet->getSmartSheet()->getContainer();
         $this->assertInstanceOf('Symfony\Component\DependencyInjection\ContainerBuilder', $container);
     }
 }
