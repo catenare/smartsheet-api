@@ -22,7 +22,7 @@ function set_base_vars($auth = NULL, $api = NULL) {
 	}
 }
 
-if (!defined(AUTH_TOKEN) ) {
+if (!defined('AUTH_TOKEN') ) {
 	set_base_vars();
 }
 
