@@ -17,7 +17,6 @@ use GuzzleHttp\Psr7;
 use GuzzleHttp\Exception\RequestException;
 use PHPUnit\Framework\TestCase;
 
-
 abstract class BaseTest extends TestCase {
 
     protected static $client;

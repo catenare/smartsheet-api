@@ -10,8 +10,21 @@
 
 use Symfony\Component\Dotenv\Dotenv;
 
-$dotenv = new Dotenv();
-$dotenv->load( '.env' );
+function set_base_vars($auth = NULL, $api = NULL) {
+	$dotenv = new Dotenv();
+	if ( file_exists( __DIR__ .DIRECTORY_SEPARATOR .'.env' ) ) {
+		$dotenv->load( __DIR__ .DIRECTORY_SEPARATOR .'.env' );
+		define( 'AUTH_TOKEN', $_ENV['TOKEN'] );
+		define( 'API_URL', $_ENV['URL'] );
+	} else {
+		define( 'AUTH_TOKEN', $auth );
+		define( 'API_URL', $api );
+	}
+}
+
+if (!defined(AUTH_TOKEN) ) {
+	set_base_vars();
+}
 
 const CONFIG          = 'config';
 const CONFIG_FILE     = 'services.yml';
@@ -33,8 +46,8 @@ define( 'GET', 'GET' );
 define( 'PUT', 'PUT' );
 define( 'POST', 'POST' );
 define( 'DELETE', 'DELETE' );
-define( 'BASE_URL', [ 'base_uri' => $_ENV['URL'] ] );
-define( 'HEADERS', [ 'base_uri' => $_ENV['URL'], 'headers' => [ 'Authorization' => 'Bearer ' . $_ENV['TOKEN'] ] ] );
+define( 'BASE_URL', [ 'base_uri' => API_URL ] );
+define( 'HEADERS', [ 'base_uri' => API_URL, 'headers' => [ 'Authorization' => 'Bearer ' . AUTH_TOKEN ] ] );
 define( 'CONFIG_DIRECTORIES', [ __DIR__ . DIRECTORY_SEPARATOR . CONFIG . DIRECTORY_SEPARATOR . PROPERTIES_DIR ] );
 
 //require 'main.php';
