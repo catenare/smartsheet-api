@@ -20,6 +20,7 @@
     "symfony/serializer": "^3.3",
     "zendframework/zend-json": "^3.0"
   },
+  "minimum-stability": "dev",
   "autoload": {
     "psr-4": { "SmartSheet\\": "src/" },
     "files":["boot.php","main.php"]
