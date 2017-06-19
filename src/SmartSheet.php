@@ -25,11 +25,41 @@ class SmartSheet {
 	 */
 	private $container;
 
+	private $token = NULL;
+
+	private $url = NULL;
+
 
 	/**
 	 * SmartSheet constructor.
+	 *
+	 * @param null $token
+	 * @param null $url
 	 */
-	public function __construct() {
+	public function __construct($token = NULL, $url = NULL) {
+
+		if( !is_null( $token ) ) {
+			if (!defined('AUTH_TOKEN')) {
+				define('AUTH_TOKEN', $token );
+			}
+			$this->token = $token;
+		}
+
+
+		if ( !is_null($url ) ) {
+			if(!defined('API_URL') ) {
+				define('API_URL', $url);
+			}
+			$this->url = $url;
+		}
+
+		if( !defined('BASE_URL')) {
+			define( 'BASE_URL', [ 'base_uri' => API_URL ] );
+		}
+
+		if( !defined('HEADERS')) {
+			define( 'HEADERS', [ 'base_uri' => API_URL, 'headers' => [ 'Authorization' => 'Bearer ' . AUTH_TOKEN ] ] );
+		}
 
 		$container = new ContainerBuilder();
 		$loader    = new YamlFileLoader(
@@ -38,6 +68,35 @@ class SmartSheet {
 		$loader->load( CONFIG_FILE );
 		$this->container = $container;
 		$this->config    = $this->getContainer()->get( 'smartconfig' );
+
+	}
+
+	/**
+	 * @return null
+	 */
+	public function getToken() {
+		return $this->token;
+	}
+
+	/**
+	 * @param null $token
+	 */
+	public function setToken( $token ) {
+		$this->token = $token;
+	}
+
+	/**
+	 * @return null
+	 */
+	public function getUrl() {
+		return $this->url;
+	}
+
+	/**
+	 * @param null $url
+	 */
+	public function setUrl( $url ) {
+		$this->url = $url;
 	}
 
 	/**
