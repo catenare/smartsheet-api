@@ -1,6 +1,4 @@
-#!/usr/bin/env php
 <?php
-require 'vendor/autoload.php';
 use Symfony\Component\Console\Application;
 use SmartSheet\SmartSheet;
 
